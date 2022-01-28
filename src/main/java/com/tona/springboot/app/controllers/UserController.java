@@ -82,18 +82,18 @@ public class UserController {
 	
 //	Read all users
 	
-	@GetMapping
-	public List<User> readAll(){
-		List<User> users=StreamSupport
-							.stream(userService.findAll().spliterator(), false)
-							.collect(Collectors.toList());
-		return users;
-	}
+//	@GetMapping("/")
+//	public List<User> readAll(){
+//		List<User> users=StreamSupport
+//							.stream(userService.findAll().spliterator(), false)
+//							.collect(Collectors.toList());
+//		return users;
+//	}
 	
 //	Pagination 
 	
 	@GetMapping
-	public ResponseEntity<?> getAll(@RequestParam(name = "page",defaultValue = "0") int page) {
+	public ResponseEntity<?> getAllPagination(@RequestParam(name = "page",defaultValue = "0") int page) {
 		Pageable pageRequest=PageRequest.of(page, 5);
 		//5 es el número de registros a mostrar
 		
